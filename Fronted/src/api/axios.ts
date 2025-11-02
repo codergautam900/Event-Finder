@@ -1,17 +1,23 @@
-import axios from "axios";
+// src/api/axios.ts
+import axios, { InternalAxiosRequestConfig } from "axios";
 
-const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Backend base URL
-  timeout: 10000,
+const instance = axios.create({
+  baseURL: "http://localhost:5000/api",
+  withCredentials: true,
 });
 
-API.interceptors.request.use((req) => {
-  const token = localStorage.getItem("ef_token");
-  if (token) {
-    req.headers = req.headers || {};
-    (req.headers as Record<string, string>).Authorization = `Bearer ${token}`;
+instance.interceptors.request.use((req: InternalAxiosRequestConfig) => {
+  if (!req.headers) {
+    req.headers = new axios.AxiosHeaders();
   }
+
+  // example: add token if needed
+  const token = localStorage.getItem("token");
+  if (token) {
+    req.headers.set("Authorization", `Bearer ${token}`);
+  }
+
   return req;
 });
 
-export default API;
+export default instance;
