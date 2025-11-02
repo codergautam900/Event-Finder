@@ -13,6 +13,12 @@
     "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": [".ts", "controllers//.ts", "routes//.ts", "models//.ts", "config//*.ts"],
+  "include": [
+    "index.ts",
+    "config//*.ts",
+    "controllers//*.ts",
+    "routes//*.ts",
+    "models//*.ts"
+  ],
   "exclude": ["node_modules"]
 }
