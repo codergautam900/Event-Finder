@@ -5,6 +5,7 @@
     "rootDir": "./",
     "outDir": "./dist",
     "lib": ["esnext"],
+    "typeRoots": ["./node_modules/@types"],
     "types": ["node"],
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -13,12 +14,6 @@
     "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": [
-    "index.ts",
-    "config//*.ts",
-    "controllers//*.ts",
-    "routes//*.ts",
-    "models//*.ts"
-  ],
+  "include": ["index.ts", "config//.ts", "controllers//.ts", "models//.ts", "routes//.ts"],
   "exclude": ["node_modules"]
 }
