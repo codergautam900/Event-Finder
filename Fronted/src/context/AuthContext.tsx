@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import API from "../api/axios"; // axios instance (localhost:5000/api)
+import API from "../api/axios";
 
 interface User {
   id: string;
@@ -10,7 +10,7 @@ interface User {
 interface AuthContextType {
   user: User | null;
   token: string | null;
-  loading: boolean; // ✅ ye add kar
+  loading: boolean;
   loginWithApi: (email: string, password: string) => Promise<void>;
   signupWithApi: (name: string, email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -21,22 +21,21 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true); // ✅ added loading state
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const rawU = localStorage.getItem("ef_user");
     const rawT = localStorage.getItem("ef_token");
-
     if (rawU && rawT) {
       try {
-        setUser(JSON.parse(rawU) as User);
+        setUser(JSON.parse(rawU));
         setToken(rawT);
       } catch {
         localStorage.removeItem("ef_user");
         localStorage.removeItem("ef_token");
       }
     }
-    setLoading(false); // ✅ stop loading after check
+    setLoading(false);
   }, []);
 
   const setLocalUser = (u: User, t: string) => {
@@ -76,9 +75,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user, token, loading, loginWithApi, signupWithApi, logout }}
-    >
+    <AuthContext.Provider value={{ user, token, loading, loginWithApi, signupWithApi, logout }}>
       {children}
     </AuthContext.Provider>
   );
