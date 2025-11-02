@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2020",
     "module": "commonjs",
     "rootDir": "./",
     "outDir": "./dist",
@@ -14,6 +14,6 @@
     "skipLibCheck": true,
     "sourceMap": true
   },
-  "include": ["index.ts", "config//.ts", "controllers//.ts", "models//.ts", "routes//.ts"],
+  "include": ["index.ts", "config/**/*.ts", "controllers/**/*.ts", "models/**/*.ts", "routes/**/*.ts"],
   "exclude": ["node_modules"]
 }
