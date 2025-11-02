@@ -18,7 +18,7 @@ export const PopupProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   return (
     <PopupContext.Provider value={{ showPopup, closePopup }}>
       {children}
-      <Modal open={!!popup} title={popup?.title} onClose={closePopup} actions={popup?.actions}>
+      <Modal isOpen ={!!popup} title={popup?.title} onClose={closePopup} actions={popup?.actions}>
         {popup?.content}
       </Modal>
     </PopupContext.Provider>

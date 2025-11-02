@@ -1,5 +1,6 @@
 export interface Event {
-  _id: string;
+  _id?: string;
+  id?: string; // 👈 Add this line to fix TS errors everywhere
   title: string;
   description: string;
   date: string;

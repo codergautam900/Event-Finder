@@ -75,7 +75,7 @@ const EventModal: React.FC<{
 
               {onJoin && (
                 <button
-                  onClick={() => onJoin(event._id || event.id)}
+                  onClick={() => onJoin(event._id ?? event.id ?? "")}
                   className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-transform hover:scale-105 text-center"
                 >
                   Join Now
