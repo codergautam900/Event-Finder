@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // ✅ Link added
 import API from "../api/axios";
 import { toast } from "react-toastify";
 
@@ -25,6 +25,7 @@ export default function Signup() {
 
     try {
       setLoading(true);
+      // ✅ Correct API endpoint
       const res = await API.post("/auth/signup", form);
 
       if (res.data?.token) {
@@ -107,14 +108,15 @@ export default function Signup() {
             </button>
           </form>
 
+          {/* ✅ Changed from <a href> to <Link> to avoid 404 */}
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
             Already have an account?{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="text-pink-600 dark:text-pink-400 font-medium hover:underline"
             >
               Login
-            </a>
+            </Link>
           </p>
         </div>
       </div>

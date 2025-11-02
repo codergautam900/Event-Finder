@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
@@ -87,9 +87,12 @@ export default function Login() {
 
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
             Don’t have an account?{" "}
-            <a href="/signup" className="text-pink-600 dark:text-pink-400 font-medium hover:underline">
+            <Link
+              to="/signup"
+              className="text-pink-600 dark:text-pink-400 font-medium hover:underline"
+            >
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
