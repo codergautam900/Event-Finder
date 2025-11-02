@@ -4,21 +4,12 @@
   "description": "🔥 Pro-level backend for EventFinder app using TypeScript, Express, and MongoDB",
   "main": "dist/index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "prebuild": "npm install rimraf -g || true",
+    "clean": "npx rimraf dist",
     "build": "npm run clean && tsc",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only index.ts"
   },
-  "keywords": [
-    "node",
-    "express",
-    "typescript",
-    "mongodb",
-    "backend",
-    "event-management"
-  ],
-  "author": "Gautam Sagar",
-  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
@@ -27,8 +18,7 @@
     "geolib": "^3.3.4",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.2",
-    "multer": "^2.0.2",
-    "rimraf": "^6.1.0"
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -41,6 +31,7 @@
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "rimraf": "^6.1.0"
   }
 }
