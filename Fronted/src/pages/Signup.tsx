@@ -12,11 +12,9 @@ export default function Signup() {
   });
   const [loading, setLoading] = useState(false);
 
-  // 🧠 handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  // ✨ handle form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -47,7 +45,6 @@ export default function Signup() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500/20 to-pink-500/20 dark:from-gray-900 dark:to-black px-4">
       <div className="relative w-full max-w-md backdrop-blur-2xl bg-white/30 dark:bg-gray-800/40 rounded-2xl shadow-2xl p-8 border border-white/30 dark:border-gray-700/50 overflow-hidden">
-        {/* Animated gradient layer */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 via-pink-500/30 to-purple-500/30 animate-pulse opacity-60 rounded-2xl blur-xl"></div>
 
         <div className="relative z-10">
