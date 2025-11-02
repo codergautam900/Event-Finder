@@ -16,6 +16,11 @@ app.use(express.json());
 
 connectDB();
 
+// ✅ Root route (for Render test)
+app.get("/", (req, res) => {
+  res.send("🚀 Event Finder Backend is Live!");
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 
