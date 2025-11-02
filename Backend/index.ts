@@ -11,12 +11,17 @@ process.setMaxListeners(0);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 connectDB();
 
-// ✅ Root route (for Render test)
 app.get("/", (req, res) => {
   res.send("🚀 Event Finder Backend is Live!");
 });

@@ -1,8 +1,7 @@
-// src/api/axios.ts
 import axios, { InternalAxiosRequestConfig } from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://event-finder-6.onrender.com/api", // ✅ Direct backend URL
   withCredentials: true,
 });
 
@@ -11,7 +10,7 @@ instance.interceptors.request.use((req: InternalAxiosRequestConfig) => {
     req.headers = new axios.AxiosHeaders();
   }
 
-  // example: add token if needed
+  // 🔒 Token add kar raha hai agar login hua hai
   const token = localStorage.getItem("token");
   if (token) {
     req.headers.set("Authorization", `Bearer ${token}`);
